@@ -4,8 +4,6 @@
  *  Gulpfile.js made by Victor Nery
  *  Initially for projects with SASS
  *  ES6, Components to made a WP Theme
- * 
- *  Free License.
  */
 
 const gulp = require('gulp');
