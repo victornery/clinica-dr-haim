@@ -1,0 +1,698 @@
+a {
+	color: cl(green);
+}
+.#{$prefix}-titles {
+	h2 {
+		font-weight: 300;
+		font-size: rem(30);
+	}
+	p, span {
+		font-weight: 300;
+	}
+	strong {
+		font-weight: 500;
+	}
+	@include m('green') {
+		color: cl(green);
+	}
+	@include m('white') {
+		color: cl(white);
+	}
+	@include m('big') {
+		font-size: rem(50);
+	}
+}
+
+.#{$prefix}-section {
+	padding: rem(40) 0;
+}
+
+.#{$prefix}-typed {
+	&::after {
+		content: '|';
+		display: inline;
+		-webkit-animation: blink 0.7s infinite;
+		-moz-animation: blink 0.7s infinite;
+		animation: blink 0.7s infinite;
+	}
+}
+
+@keyframes blink{
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
+}
+
+.#{$prefix}-header {
+    $self: &;
+
+	//background: cl(white);
+	//background: cl(green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+	box-shadow: -1px rem(1) rem(20) -5 grey;
+	padding: 15px 0;
+
+	@include respond-to(sm) {
+		padding: 0;
+	}
+
+	@include m('opened') {
+
+		.mbr-nav {
+		background: rgba(0,0,0,.6);
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		top: 0;
+		left: 0;
+		}
+
+		.#{$prefix}-menu-button {
+		
+			span:nth-child(2) {
+				opacity: 0;
+				transform: translateX(-100%);
+			}
+			span:nth-child(1) {
+				transform: rotateZ(45deg);
+			}
+			span:nth-child(3) {
+				transform: rotateZ(-45deg);
+			}
+		}
+	}
+
+	@include e('flex') {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-flow: row wrap;
+
+		justify-content: space-between;
+	}
+
+	@include e('logo') {
+		@include size(rem(200), rem(52));
+		background: {
+			image: url(../images/logo-mbr-small.png);
+		}
+		filter: brightness(100);
+	}
+}
+
+.#{$prefix}-nav {
+	$self: &;
+
+	display: none;
+	
+    justify-content: center;
+    align-items: center;
+	padding: rem(15);
+	
+	@include respond-to(md) {
+		display: flex;
+	}
+
+    li:last-child a {
+    	border: rem(1) solid cl(white);
+
+    	&:hover {
+    		background: cl(white);
+    		color: cl(green);
+    	}
+    }
+
+    @include e('item') {
+    	display: inline-flex;
+    	padding: 0 rem(15);
+
+	    	a {
+	    		@extend %transition;
+	    		//color: cl(green);
+	    		color: cl(white);
+	    		padding: rem(14);
+	    		border-radius: rem(10);
+	    		border: rem(1) solid transparent;
+
+	    		&:hover {
+	    			border-color: cl(white);
+	    			//color: #fff;
+	    	}
+	    }
+    }
+
+    @include e('sub-menu') {
+    	display: none;
+    }
+
+    @include e('green', $self) {
+    	@include e('item') {
+    		a {
+    			color: cl(white);
+    		}
+    	}
+    }
+
+}
+
+.#{$prefix}-menu-button {
+
+	padding: 10px;
+    border: 1px solid #fff;
+	border-radius: 10px;
+	
+	display: flex;
+	flex-direction: column;
+	
+	z-index: 150;
+	transition: .5s all;
+	
+	@include e('line') {
+		width: 25px;
+		height: 3px;
+		background: #fff;
+		margin: 3px 0;
+		transition: .5s all;
+	}
+
+	@include respond-to(md) {
+		display: none;
+	}
+}
+
+.#{$prefix}-apresentation {
+	background: cl(green);
+	background: {
+		image: url('../images/sec-apr.jpg');
+		repeat: no-repeat;
+		size: cover;
+		position: center;
+		blend-mode: multiply;
+	}
+	color: cl(white);
+	padding: rem(129) 0 rem(100);
+
+	h2 {
+		text-align: center;
+	}
+}
+.#{$prefix}-flex {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+
+	@include m('column') {
+		flex-flow: column wrap;
+	}
+	@include m('space') {
+		flex-flow: column wrap;
+		@include respond-to(md) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+}
+.#{$prefix}-users {
+	padding: 0 0 rem(50);
+	background: #F4F6F9;
+
+	& .row {
+		@include respond-to(md) {
+			width: 100%;
+			margin-top: - rem(50);
+			position: relative;
+			display: inline-flex;
+		}
+	}
+}
+.#{$prefix}-profile {
+	@extend %transition;
+	@include radius(rem(10));
+	border-radius: rem(10);
+	background: cl(white);
+	margin: rem(10) 0;
+	font-family: $font-default;
+	font-weight: 300;
+	border: rem(3) solid #f0f0f0;
+	overflow: hidden;
+	position: relative;
+
+	@include e('contact') {
+		white-space: nowrap;
+	}
+
+	@include m('gold') {
+		border-color: #ffbf00;
+	}
+
+	@include m('silver') {
+		border-color: #BCC6CC;
+	}
+
+	@include m('bronze') {
+		border-color: #5B391E;
+	}
+
+	@include e('plano') {
+		position: absolute;
+	    top: rem(15);
+	    right: rem(15);
+	    color: cl(white);
+	    padding: rem(5);
+	    //border-radius: 10px;
+	    font-size: rem(16);
+	    font-weight: 500;
+	    font-family: Poppins;
+
+	    @include m('gold') {
+			background-color: #ffbf00;
+		}
+
+		@include m('silver') {
+			background-color: #BCC6CC;
+		}
+
+		@include m('bronze') {
+			background-color: #5B391E;
+		}
+	}
+
+	figure {
+		position: relative;
+		border-top-left-radius: rem(10);
+		border-top-right-radius: rem(10);
+
+		img {
+			display: block;
+			max-width: 100%;
+			position: relative;
+
+			width: 100%;
+			height: rem(220);
+			object-fit: cover;
+		}
+	}
+
+	@include e('name') {
+		text-transform: uppercase;
+		font-weight: 700;
+		padding: rem(10) 0 0;
+		background: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: $font-secundary;
+		font-size: rem(24);
+		font-weight: 200;
+	}
+
+	@include e('therapies') {
+		background: cl(white);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 rem(5);
+		margin: rem(10) 0;
+		overflow-x: auto;
+    touch-action: pan-x;
+
+		&:after {
+			position: absolute;
+			display: block;
+			content: " ";
+			width: 90%;
+			height: rem(1);
+			background-color: #E5EAF2;
+			margin-top: rem(20);
+		}
+	}
+
+	@include e('therapy') {
+		background: cl(green);
+		border-radius: rem(3);
+		font-size: rem(12);
+		color: cl(white);
+		padding: rem(3);
+		margin: 0 rem(3);
+		white-space: nowrap;
+
+		&:first-child {
+			//margin-left: rem(50);
+		}
+	}
+
+	@include e('data') {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	@include e('option') {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: rem(5) rem(15);
+		background: cl(white);
+		color: cl(black);
+		font-weight: 500;
+		font-weight: 300;
+		position: relative;
+		
+		&:not(.mbr-profile__option--social) {
+			flex-direction: column;
+		}
+
+		i[class~="fa"] {
+			color: cl(green);
+			padding-right: rem(10);
+		}
+
+		@include m('contact') {
+			&:before {
+				content: "CONTATO";
+				position: relative;
+				display: block;
+				text-align: center;
+				// padding-top: rem(10);
+				font-size: rem(13);
+
+				@include respond-to(md) {
+					align-self: flex-start;
+				}
+			}
+		}
+
+		@include m('locate') {
+			display: block;
+			position: relative;
+			overflow-x: scroll;
+
+			&:before {
+				content: "ATENDIMENTO";
+				position: relative;
+				display: block;
+				text-align: center;
+				// padding-top: rem(10);
+				font-size: rem(13);
+
+				@include respond-to(md) {
+					align-self: flex-end;
+				}
+			}
+		}
+
+		@include m('social') {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			font-size: rem(20);
+			
+			a {
+				transition: 500ms all;
+
+				&:hover > .#{$prefix}-tooltip {
+					opacity: 1;
+				}
+
+				i {
+					padding-right: 0;
+				}
+			}
+		}
+	}
+
+	&:hover {
+		box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+		transform: scale(1.05,1.05);
+	}
+}
+.#{$prefix}-partners {
+	background-color: cl(green);
+	padding: rem(50) 0;
+
+	figure {
+		margin: 50px 0;
+		padding: 0;
+
+		img {
+			width: 100px;
+			height: 100px;
+			filter: grayscale(100);
+
+			&:hover {
+				filter: none;
+			}
+		}
+	}
+}
+
+.#{$prefix}-about {
+	background: cl(white);
+	padding: rem(50) 0;
+
+	@include e('hold') {
+		padding-top: rem(50);
+	}
+
+	@include e('content') {
+		width: 100%;
+		display: flex;
+    align-items: center;
+		justify-content: center;
+		
+		@include respond-to(md) {
+			width: 50%;
+		}
+	}
+	@include e('img') {
+		@extend .mbr-about__content;
+	}
+}
+
+.#{$prefix}-information {
+	@extend %transition;
+	display: flex;
+    position: fixed;
+    bottom: 70px;
+    right: 70px;
+    border-radius: rem(10);
+    overflow: hidden;
+    border: 1px solid grey;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    animation-delay: 3s;
+    z-index: 3;
+
+    .#{$prefix}-information__title:hover & {
+    	transform: scale(1.1, 1.1);
+    }
+
+    @include e('title') {
+		background: cl(green);
+		text-transform: uppercase;
+		color: cl(white);
+		font-weight: 500;
+		padding: 15px;
+	}
+
+	@include e('content') {
+		background: cl(white);
+		padding: 15px;
+	}
+}
+
+.#{$prefix}-tooltip {
+	@extend %transition;
+	display: flex;
+	opacity: 0;
+    position: absolute;
+    background: #788943;
+    padding: 5px;
+    color: #fff;
+    top: -31px;
+    margin-left: -15px;
+    font-size: 14px;
+    font-weight: 300;
+
+	&:after {
+	    position: absolute;
+	    top: 98.1%;
+	    left: 70%;
+	    margin-left: -25%;
+	    content: "";
+	    width: 0;
+	    height: 0;
+	    border-top: 4px solid cl(green);
+	    border-left: 4px solid transparent;
+	    border-right: 4px solid transparent;
+	}
+}
+
+.#{$prefix}-suggestions {
+	background: {
+		image: url('http://teratech.com/wp-content/uploads/2017/02/Depositphotos_19834643_original-2.jpg');
+		repeat: no-repeat;
+		size: cover;
+		position: center;
+	}
+	color: cl(white);
+	padding: rem(50) 0;
+	position: relative;
+	overflow: hidden;
+
+	& .container {
+		position: relative;
+		display: block;
+		z-index: 2;
+	}
+}
+
+.#{$prefix}-mask {
+	@include size(100%, 100%);
+	position: absolute;
+	background-color: rgba(0,0,0,0.5);
+	top: 0;
+	z-index: 1;
+
+	@include m('green') {
+		background-color: rgba(120, 137, 67, 0.5);
+	}
+}
+
+.#{$prefix}-parallax {
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.#{$prefix}-form {
+	@include m('suggestions') {
+		padding: rem(40) 0 0;
+		width: 100%;
+
+		@include respond-to(md) {
+			width: rem(820);
+		}
+
+		input, textarea {
+			font-weight: 300;
+			background: #fff;
+			color: #666;
+			border: 1px solid #ddd;
+			padding: 12px;
+			width: 100%;
+			display: block;
+			border-radius: 2px;
+			font-size: 16px;
+			height: 40px;
+			box-shadow: none;
+			margin: 0;
+			position: static;
+			outline: 0;
+		}
+		textarea[name="sugestao"] {
+			width: 100%;
+			margin: 10px 0;
+			height: 100px;
+		}
+	}
+}
+
+.um-104 > .um-postmessage {
+	background: #788943;
+    color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.#{$prefix}-modal {
+	@include radius(rem(10));
+  position: relative;
+  padding: 40px;
+  width: rem(600);
+  max-width: 100%;
+  margin: 20px auto;
+	text-align: center;
+
+	@include m('duo') {
+		padding: 0;
+
+		@include e('top') {
+			padding: rem(40);
+		}
+	}
+
+	@include m('green') {
+		background: cl(green);
+		color: cl(white);
+
+		.mfp-close {
+			color: cl(white);
+			transition: 500ms all;
+		}
+	
+		a {
+			color: cl(white);
+		}
+	}
+
+	@include e('numbers') {
+		display: flex;
+		background: cl(white);
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		padding-bottom: rem(20);
+		border-bottom-left-radius: rem(10);
+		border-bottom-right-radius: rem(10);
+		
+		a {
+			width: 100%;
+			background: cl(white);
+			color: cl(green);
+			padding: 20px;
+			font-size: rem(18);
+		}
+	}
+}
+
+#open-popup {padding:20px}
+
+
+.mbr-treatment__card {
+    background: #fff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+	text-align: center;
+	
+	h2 {
+		color: rgba(120, 137, 67, 1);
+		border-bottom: 1px solid #eee;
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+}
+
+.mbr-partner__box {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+	img {
+		width: 100px;
+		height: auto;
+		object-fit: contain;
+	}
+}

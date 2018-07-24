@@ -1,0 +1,28 @@
+// -----------------------------------------------------------
+// RESPONSIVO
+// Regras das Media QUeries para responsivo
+// -----------------------------------------------------------
+
+$break-mobile: 568px;
+$break-small: 767px;
+$break-medium: 1023px;
+$break-large: 1280px;
+
+@mixin respond-to($media) {
+
+  @if $media == xs {
+    @media only screen and (min-width: $break-mobile) { @content; }
+  }
+
+  @else if $media == sm {
+    @media only screen and (min-width: $break-small) { @content; }
+  }
+
+  @else if $media == md {
+    @media only screen and (min-width: $break-medium) { @content; }
+  }
+
+  @else if $media == lg{
+    @media only screen and ( min-width: $break-large){ @content; }
+  }
+}

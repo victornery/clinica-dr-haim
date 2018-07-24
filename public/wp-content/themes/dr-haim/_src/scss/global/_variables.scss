@@ -1,0 +1,22 @@
+	//==========================================================================
+// VARIAVEIS
+// Definição das variavéis do Tema
+// Não remover nenhuma das variavéis para evitar crash do SASS
+//==========================================================================
+
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,500');
+
+$font-default      : 'Lato', Arial, helvetica, sans-serif !default;
+$font-secundary    : 'Montserrat', cursive !default;
+$font-header       : $font-default;
+
+//Sizes
+$border-radius: 30px;
+$padding-section: 30px 0;
+
+// CSS VARS
+//==========================================================================
+$i : !important;
+$t : transparent;

@@ -1,0 +1,73 @@
+// **
+// Color Scheme 0.0.1
+// Scheme from colors for the project
+//
+// From DEV Undergrond
+// Participants: Jonas Sousa, Allef Silva
+//
+// We use two variables:
+// $colors  - Map from colors default from the project.
+// $palette - Tonality from the colors primarys, secondarys, etc.
+// **
+
+// Project colors
+// Map from colors default from the project. 
+
+$colors: (
+  white: #fff,
+  black: #000,
+  green: #788943,
+  
+	// semantic colors
+	// sucess, error, information
+	semantic:(
+		sucess:  #12bc00,
+		info:    #0a84ff,
+		warning: #d76e00,
+		error:   #d70022
+	),
+	// default colors
+	// brand color, link, button, etc
+	main:(
+		primary:   orange, // brand logo
+		secondary: silver, // brand logo sec
+		link:      #45a1ff
+	)
+);
+
+// Color = cl
+// Colors function
+@function cl($color-name, $color-variant: null) {
+  // color variant is optional
+  @if ($color-variant != null) {
+    @if map-has-key($colors, $color-name) {
+      @return map-get(map-get($colors, $color-name), $color-variant);
+    }
+  } @else {
+    @return map-get($colors, $color-name);
+  }
+
+  @warn "Unknown `#{$color-name}` in $palettes.";
+  @return null;
+}
+
+// Construction
+@mixin make-color($name: color){
+  @each $theme in map-keys($colors) {
+    @each $length in map-get($colors, $theme) {
+      @if ( length($length) >= 2 ) {
+        .#{$name}-#{$theme}-#{ nth($length, 1) },
+        %#{$name}-#{$theme}-#{ nth($length, 1) }{
+          color: nth($length, 2);
+        }
+      } @else {
+        .#{$name}-#{$theme}
+        %#{$name}-#{$theme}{
+          color: #{ nth($length, 1) };
+        }
+      }
+    }
+  }
+}
+
+// @include make-color($prefix + 'color');

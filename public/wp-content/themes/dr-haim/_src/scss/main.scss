@@ -1,0 +1,42 @@
+/*!
+* Copyright: 2018 - MASSAGEM BRASIL.
+* Desenvolvedor(es): Victor Nery | MBR
+*/
+
+//==========================================================================
+// PREFIX VAR
+//==========================================================================
+$prefix: 'mbr';
+
+//==========================================================================
+// STYLES
+//==========================================================================
+@import 'vendor/base';
+@import 'global/all';
+@import 'modules/all';
+@import 'partials/base';
+@import 'pages/base';
+
+//Página de Ajuda
+
+.#{$prefix}-help {
+    @include e('box') {
+        color: cl(green);
+        border: 1px solid cl(green);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px 0;
+
+        h2 {
+            font-weight: 300;
+        }
+
+        p {
+            display: none;
+        }
+    }
+}
+
+.section-register {
+    padding: 20px 0;
+}

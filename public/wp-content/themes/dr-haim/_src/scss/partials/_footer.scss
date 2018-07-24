@@ -1,0 +1,19 @@
+.#{$prefix}-footer {
+	@include e('copyrights') {
+		padding: rem(20);
+		color: cl(green);
+		font-size: rem(14);
+	}
+}
+
+.#{$prefix}-social {
+	a {
+		color: cl(green);
+		font-size: rem(20);
+		padding: 0 rem(10);
+
+		&:last-child {
+			padding-right: 0;		
+		}
+	}
+}

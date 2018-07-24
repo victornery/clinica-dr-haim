@@ -1,0 +1,10 @@
+// UTILITIES
+
+// Image Replace
+@mixin imgRep(){
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+//REM
+@function rem($pxsize) { @return ($pxsize/16)+rem; }

@@ -1,0 +1,283 @@
+ /// Font Size Scheme 0.0.1
+/// Map for sizes from the font; 
+/// function for use the sizes; 
+/// create classes and placeholders.
+/// 
+/// From DEV Undergrond
+/// @author Allef Silva, Jonas Sousa
+
+/// Map - Font Sizes
+/// @type Map
+/// 
+/// Use unity better for you(px, em, rem).
+/// 
+/// Helper nomeclature.
+/// Use a letter(for example x) up until three times. After, use next letter.
+$font-sizes: (
+  // u = ultra
+  uu-large   : 67px,
+  u-large    : 48px,
+  // h = hiper
+  hhh-large  : 44px,
+  hh-large   : 36px,
+  h-large    : 32px,
+  // x = extra
+  xxx-large  : 30px,
+  xx-large   : 27px,
+  x-large    : 24px,
+  large      : 20px,
+  
+  x-medium   : 18px,
+  medium     : 16px, // Your font size base.
+  // x = extra
+  small      : 14px,
+  x-small    : 12px,
+  xx-small   : 10px
+);
+// Mixin de tam. peso e familia de fonte. 
+@mixin fonts( $bold: 700, $size: 12, $font: $font-default) {
+  font: $bold rem($size) $font;
+}
+/// Function use-fz
+/// Use for values extract in map variable $font-sizes.
+/// 
+/// @access public
+/// 
+/// @param {Number} $size - `Size` value
+/// 
+/// @example scss - Use
+///   .foo {
+///     font-size: use-fz(x-small);
+///   }
+///
+/// @example css - CSS result
+///   .foo {
+///     font-size: 12px;
+///   }
+@function use-fz($size){
+  @if map-has-key($font-sizes, $size) {
+    @return map-get($font-sizes, $size);
+  }
+  
+  @warn "Unfortunately, no value could be retrieved from `#{size}`. "
+        + "Please make sure it is defined in `$font-sizes` map.";
+  @return null;
+}
+
+/// Mixin make-fz
+/// Use for create classes and placeholders in the map $font-sizes.
+///
+/// @access public
+///
+/// @param {String} $name - `Name` radical for class
+/// Default param 'fz' - Abreviate for the font-size.
+@mixin make-fz($name: fz){
+  @each $sufix, $value in $font-sizes {
+    .#{$name}--#{$sufix}, 
+    %#{$name}--#{$sufix} {
+      font-size: use-fz($sufix);
+    }
+  }
+}
+
+/// Prefix for using in the mixin make-fz
+///
+/// * Necessary use '-'
+/// Ex: $prefix : 'df-';
+///
+/// @type String
+///
+/// @example scss - Use
+///   $prefix : 'df-';
+///   @include make-fz($prefix + 'font');
+///
+/// @example css - CSS result
+///   .df-font-x-large {
+///     font-size: 24px;
+///   }
+$prefix : $prefix;
+
+/// Using mixin make-fz
+/// Generate classes and placeholders
+///
+/// @example scss and css - SCSS and CSS result
+///   ....
+///   %font-medium, 
+///   .font-medium {
+///     font-size: 16px;
+///   }
+///
+///   %font-small {
+///   .font-small {
+///     font-size: 14px;
+///   }
+///   ....
+@include make-fz($prefix + 'fz');
+
+
+
+//modules of titles and subtitles HOME
+.title{
+  //text-align: center;
+  // position: relative;
+  // &:before{
+  //   position: absolute;
+  //   content: '';
+  //   width: 100%;
+  //   border: 2px solid $Blue-Dark;
+  //   max-width: 79px;
+  //   top: -28px;
+  // }
+  // @include m('large'){
+  //   @include fonts(200,30);
+  //   color: $White;
+
+  //   @include respond-to(sm){
+  //     @include fonts(200,60);
+  //   }
+  // }
+  // @include m('big'){
+  //   @include fonts(700,24);
+  //   color: $white;
+  //   &:before{
+  //     display: none;
+  //   }
+  //   @include respond-to(sm){
+  //     @include fonts(700,25);
+  //   }
+  //   @include respond-to(md){
+  //     @include fonts(700,40);
+  //   }
+
+  // }
+  // @include m('default'){
+  //   @include fonts(700,36);
+  //   text-align: left;
+  //   position: relative;
+  //   &:before{
+  //     position: absolute;
+  //     content: '';
+  //     width: 100%;
+  //     border: 2px solid $Blue-Dark;
+  //     max-width: 79px;
+  //     top: -28px;
+  //   }
+  // }
+  // @include m('default-two'){
+  //   @include fonts(700,26);
+  //   text-align: center;
+  //   position: relative;
+  //   color: $Blue-Dark;
+  //   @include respond-to(sm){
+  //     @include fonts(700,36);
+  //   }
+  //     &:before{
+  //       display: none;
+  //     }
+ 
+  // }
+  @include m('cards'){
+    @include fonts(700,18);
+    color: $Blue-Default;
+    margin: 40px 0 23px;
+    text-align: center;
+    &:before{
+      content:'';
+      display: none;
+    }
+  }
+  @include m('apps'){
+    @include fonts(700,18);
+    &:before{
+      display: none;
+    }
+    color: $White;
+    text-align: center;
+    @include respond-to(md){
+      text-align: left;
+    }
+  }
+  // @include m('toptitle'){
+  //   @include fonts(400,15);
+  //   text-align: center;
+  //   color: #656565;
+  //   margin: 10px 0;
+  //     &:before{
+  //     display: none;
+  //   }
+  //   @include respond-to(sm){
+  //     @include fonts(400,24);
+  //   }
+  // }
+  @include m('title-ciclo'){
+    color: $White;
+    text-transform: uppercase;
+    margin: 0;
+    &:before{
+      display: none;
+    }
+    @include respond-to(sm){
+      @include fonts(100,12);
+    }
+    @include respond-to(md){
+      @include fonts(100,16);
+    }
+  }
+  // @include m('title-small'){
+  //   @include fonts(600,12);
+  //   color: #757575;
+  //   text-transform: uppercase;
+  //   margin: 0;
+  //   text-align: center;
+  //   &:before{
+  //     display: none;
+  //   }
+  //   @include respond-to(sm){
+  //     @include fonts(600,12);
+  //     text-align: left;
+  //   }
+  //   @include respond-to(md){
+  //     @include fonts(600,16);
+  //   }
+  // }
+}
+
+// .subtitle{
+//   @include fonts(400,36);
+//   color: $white;
+//   text-align: center;
+
+//   @include m('default'){
+//     @include fonts(400,17);
+//     @include respond-to(sm){
+//       @include fonts(400,16);
+//     }
+//     margin: 15px 0;
+//   }
+//   @include m('black'){
+//      color: #757575;
+//      margin: 5px 0;
+//      text-align: center$i;
+//      @include respond-to(sm){
+//       text-align: left$i;
+//      }
+//   }
+//   @include m('ciclo'){
+//     @include fonts(400,16);
+//      color: #757575;
+//      margin: 5px 0;
+//     text-align: center;
+//     @include respond-to(sm){
+//       text-align: left;
+//       max-width: 151px;
+//       font-size: 12px;
+//     }
+//     @include respond-to(md){
+//       max-width: 210px;
+//       @include fonts(400,16);
+
+//     }
+
+//   }
+// }
+

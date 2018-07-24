@@ -1,0 +1,9 @@
+// -----------------------------------------------------------
+// FontAwesome
+// Requer Vendor Font Awesome
+// -----------------------------------------------------------
+
+@mixin icone($icone){
+  @extend .fa;
+  content: $icone;
+}

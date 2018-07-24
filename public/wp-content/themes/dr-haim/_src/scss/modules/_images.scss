@@ -1,0 +1,19 @@
+// IMAGES HELPS
+
+.img-full {
+	@extend %imgProp;
+}
+
+.img-resp {
+	max-width: 100%;
+	height: auto;
+}
+
+.img-radius {
+	border-radius: $border-radius;
+}
+
+.img-circle {
+	@extend %imgProp;
+	border-radius: $border-radius;
+}
