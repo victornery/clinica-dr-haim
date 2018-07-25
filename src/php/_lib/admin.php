@@ -1,9 +1,4 @@
 <?php
-/*
-* Admin Style functions
-* Desenvolvedor: Nicholas Lima
-* Email: nick.lima.wp@gmail.com
-*/
 
 add_action('login_head', 'custom_login_logo');
 function custom_login_logo() {

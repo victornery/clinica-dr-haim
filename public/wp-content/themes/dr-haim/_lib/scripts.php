@@ -9,9 +9,9 @@ function call_scripts() {
 add_action('wp_enqueue_scripts', 'call_scripts', 100);
 
 
-function admin_script() {
+function admin_scripts() {
     wp_enqueue_style('inputs', get_template_directory_uri() . '/_lib/_admin/dist/css/input-styles.css', array(), null);
 }
 
-add_action('admin_enqueue_scripts', 'admin_script', 100);
+add_action('admin_enqueue_scripts', 'admin_scripts', 100);
 

@@ -4,6 +4,8 @@
  *  Gulpfile.js made by Victor Nery
  *  Initially for projects with SASS
  *  ES6, Components to made a WP Theme
+ *
+ *  @author victornery
  */
 
 const gulp = require("gulp");
@@ -13,7 +15,7 @@ const uglify = require("gulp-uglify");
 const babel = require("gulp-babel");
 const rename = require("gulp-rename");
 const imagemin = require("gulp-imagemin");
-const livereload = require("gulp-livereload");
+const browserSync = require("browser-sync").create();
 
 const folders = {
   dev: "./src",

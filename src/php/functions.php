@@ -1,7 +1,3 @@
-<?php
-/*
- * FUNCTIONS.PHP MADE BY
- * 		VICTOR NERY
- */
+<?php   
 
-require_once locate_template('/_lib/config.php'); //Funções do Tema
+require_once locate_template('/_lib/config.php');
