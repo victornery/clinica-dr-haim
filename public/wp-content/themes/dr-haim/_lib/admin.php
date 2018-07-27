@@ -4,16 +4,16 @@ add_action('login_head', 'custom_login_logo');
 function custom_login_logo() {
 
 $nocolor            = 'rgba(0,0,0,0)';
-$bg_color           = '#788943'; //COR DO BAGROUND DA PÁGINA
-$lb_color           = '#788943'; //COR DOS LABEL'S DO FORM
+$bg_color           = '#fff'; //COR DO BAGROUND DA PÁGINA
+$lb_color           = '#3a7579'; //COR DOS LABEL'S DO FORM
 
 $in_focus_shadow    = '#a1bae0'; //COR DA SOMBRA DOS CAMPOS (FOCUS)
 $in_focus_border    = '#ccc'; //COR DA BORDA DOS CAMPOS (FOCUS)
 
 $lg_text_color      = '#fff';    //COR DO TEXTO DO BOTÃO PRIMRÁRIO
 $lg_text_color_h    = '#fff';    //COR DO TEXTO DO BOTÃO PRIMRÁRIO (HOVER)
-$lg_color           = '#788943'; //COR DO BOTÃO PRIMÁRIO
-$lg_color_hover     = '#869556'; //COR DA BOTÃO PRIMÁRIO HOVER
+$lg_color           = '#3a7579'; //COR DO BOTÃO PRIMÁRIO
+$lg_color_hover     = '#33676b'; //COR DA BOTÃO PRIMÁRIO HOVER
 $lg_color_shadow    = $nocolor;  //COR DA SOMBRA DO BOTÃO PRIMRÁRIO
 $lg_color_shadow_h  = $nocolor;  //COR DA SOMBRA DO BOTÃO PRIMRÁRIO (HOVER)
 $lg_border_color    = $nocolor;  //COR DA BORDA DO BOTÃO PRIMRÁRIO
@@ -21,10 +21,10 @@ $lg_border_color_h  = $nocolor;  //COR DA BORDA DO BOTÃO PRIMRÁRIO (HOVER)
 
 $bt_color           = '#fff'; //COR DO BOTÃO SECUNDÁRIO
 $bt_color_h         = '#f0f0f0'; //COR DO BOTÃO SECUNDÁRIO (HOVER)
-$bt_text_color      = '#788943';    //COR DO TEXTO DO BOTÃO SECUNDÁRIO (HOVER)
-$bt_text_color_h    = '#788943';    //COR DO TEXTO DO BOTÃO SECUNDÁRIO (HOVER)
+$bt_text_color      = '#3a7579';    //COR DO TEXTO DO BOTÃO SECUNDÁRIO (HOVER)
+$bt_text_color_h    = '#33676b';    //COR DO TEXTO DO BOTÃO SECUNDÁRIO (HOVER)
 
-$logow              = '310px';   //DIMENSÕES DO LOGO - LARGURA
+$logow              = '217px';   //DIMENSÕES DO LOGO - LARGURA
 $logoh              = '81px';    //DIMENSÕES DO LOGO - ALTURA
 
 echo '
@@ -84,6 +84,12 @@ h1 a {
     color: '.$bt_text_color_h.' !important;
 }
 .login #backtoblog a, .login #nav a {color: inherit !important;}
+
+.login form .input {
+  font-weight: 300;
+  font-size: 18px;
+  padding: 5px;
+}
 
 </style>';
 }

@@ -1,9 +1,8 @@
 </main>
 
-<footer class="footer">
+<footer class="haim-footer">
 	<div class="container">
-
-		</div>
+		Teste!
 	</div>
 </footer>
 

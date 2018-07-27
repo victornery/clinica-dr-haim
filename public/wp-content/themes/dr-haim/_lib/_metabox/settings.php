@@ -5,7 +5,7 @@ function prefix_options_page( $settings_pages )
     $settings_pages[] = array(
         'id'          => 'theme-options',
         'option_name' => 'configuracoes_tema',
-        'menu_title'  => __( 'Configurações Customizadas', 'textdomain' ),
+        'menu_title'  => __( 'Opções do Site', 'textdomain' ),
         'parent'      => 'themes.php',
     );
     return $settings_pages;
@@ -39,6 +39,7 @@ function prefix_options_meta_boxes( $meta_boxes ) {
                         'name' => 'Telefone',
                         'id' => 'end_telefone',
                         'type' => 'text',
+                        'clone' => true
                     ),
                     array(
                         'name' => 'E-mail',
@@ -54,6 +55,11 @@ function prefix_options_meta_boxes( $meta_boxes ) {
                         'name' => 'Link do Instagram',
                         'id' => 'end_ig',
                         'type' => 'url',
+                    ),
+                    array(
+                        'name' => 'Endereço',
+                        'id' => 'endereco',
+                        'type' => 'text',
                     ),
                 ),
             ),

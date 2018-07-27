@@ -1,8 +1,9 @@
 <?php
 /*
-* Configurações do Tema
-*
-*/
+ * Configurações do Tema
+ * 
+ * @author Nicholas Lima
+ */
 
 //=========================================================================================
 // Importando partials
@@ -34,15 +35,15 @@ add_action('wp_head', 'blog_favicon');
 
 function setting_theme() {
 
-  register_nav_menus(array(
-    'nav_header' => 'Header',
-  ));
+ register_nav_menu('main_menu', 'Menu do Header! ;-)');
 
   add_editor_style('/assets/css/editor-style.css');//..Tell the TinyMCE editor to use a custom stylesheet
 
 }
 
 add_action('after_setup_theme', 'setting_theme');
+
+add_theme_support( 'post-thumbnails' ); 
 
 //=========================================================================================
 // METABOX CLASS (Fields + Taxonomies Fields)

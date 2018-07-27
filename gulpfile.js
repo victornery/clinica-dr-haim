@@ -15,12 +15,14 @@ const uglify = require("gulp-uglify");
 const babel = require("gulp-babel");
 const rename = require("gulp-rename");
 const imagemin = require("gulp-imagemin");
-const browserSync = require("browser-sync").create();
+const livereload = require("gulp-livereload");
 
 const folders = {
   dev: "./src",
   prod: "./public/wp-content/themes/dr-haim"
 };
+
+livereload({ start: true });
 
 gulp.task("scss", function() {
   return gulp
@@ -67,7 +69,7 @@ gulp.task("php", function() {
 });
 
 gulp.task("default", function() {
-  gulp.watch(folders.dev + "/scss/*", ["scss"]);
+  gulp.watch(folders.dev + "/scss/**/*.scss", ["scss"]);
   gulp.watch(folders.dev + "/php/**", ["php"]);
   gulp.watch(folders.dev + "/js/**", ["js"]);
   gulp.watch(folders.dev + "/imgs/**", ["imgs"]);

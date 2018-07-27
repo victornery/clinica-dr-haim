@@ -1,0 +1,12 @@
+@function getColor($color) {
+    @return map-get($colors, $color);
+}
+
+@function getBreakpoint($vp) {
+    @return map-get($breakpoints, $vp);
+}
+
+@function rem($px) {
+    $rem: $px / 16px;
+    @return #{$rem}rem;
+}

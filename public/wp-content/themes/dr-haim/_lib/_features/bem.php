@@ -111,7 +111,7 @@ class walker_texas_ranger extends Walker_Nav_Menu {
  * @return [type]
  */
 
-function bem_menu($location = "main_menu", $css_class_prefix = 'main-menu', $css_class_modifiers = null){  
+function bem_menu($location = "main_menu", $css_class_prefix = 'nav', $css_class_modifiers = null){  
     
     // Check to see if any css modifiers were supplied
     if($css_class_modifiers){
