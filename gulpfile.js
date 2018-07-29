@@ -15,22 +15,23 @@ const uglify = require("gulp-uglify");
 const babel = require("gulp-babel");
 const rename = require("gulp-rename");
 const imagemin = require("gulp-imagemin");
-const livereload = require("gulp-livereload");
+const postcss = require("gulp-postcss");
+const autoprefixer = require('autoprefixer');
 
 const folders = {
   dev: "./src",
   prod: "./public/wp-content/themes/dr-haim"
 };
 
-livereload({ start: true });
-
 gulp.task("scss", function() {
-  return gulp
-    .src(folders.dev + "/scss/main.scss")
+  var plugins = [
+    autoprefixer({browsers: ['last 1 version']}),
+  ];
+  return gulp.src(folders.dev + "/scss/main.scss")
     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
+    .pipe(postcss(plugins))
     .pipe(rename("main.min.css"))
     .pipe(gulp.dest(folders.prod + "/dist/css/"))
-    .pipe(livereload());
 });
 
 gulp.task("js", function() {
@@ -40,7 +41,6 @@ gulp.task("js", function() {
     .pipe(concat("main.min.js"))
     .pipe(uglify())
     .pipe(gulp.dest(folders.prod + "/dist/js/"))
-    .pipe(livereload());
 });
 
 gulp.task("imgs", function() {
@@ -61,16 +61,16 @@ gulp.task("imgs", function() {
       ])
     )
     .pipe(gulp.dest(folders.prod + "/dist/images"))
-    .pipe(livereload());
 });
 
 gulp.task("php", function() {
-  return gulp.src(folders.dev + "/php/**/*").pipe(gulp.dest(folders.prod));
+  return gulp.src(folders.dev + "/php/**/*.php")
+  .pipe(gulp.dest(folders.prod));
 });
 
 gulp.task("default", function() {
   gulp.watch(folders.dev + "/scss/**/*.scss", ["scss"]);
   gulp.watch(folders.dev + "/php/**", ["php"]);
   gulp.watch(folders.dev + "/js/**", ["js"]);
-  gulp.watch(folders.dev + "/imgs/**", ["imgs"]);
+  gulp.watch(folders.dev + "/images/**", ["imgs"]);
 });

@@ -2,4 +2,16 @@
   background: getColor(boxLight);
   color: getColor(light);
   padding: 30px 0;
+
+  @include e('item') {
+    flex-basis: 100%;
+
+    b, span {
+      display: block;
+    }
+
+    @media (min-width: getBreakpoint(tablet)) {
+      flex-basis: calc(100% / 3);
+    }
+  }
 }

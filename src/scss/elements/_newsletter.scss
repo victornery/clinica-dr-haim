@@ -1,5 +1,32 @@
 .#{$prefix}-newsletter {
     background: getColor(boxDark);
     color: getColor(light);
+    font-family: 'Lato', sans-serif;
     padding: 20px 0;
+
+    @include e('cta') {
+        font-size: 14px;
+        color: getColor(light);
+
+        b {
+            color: getColor(newsletter);
+            font-weight: 600;
+        }
+    }
+
+    .wpcf7-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+        
+        input {
+            margin: 0 5px;
+        }
+
+        @media (min-width: getBreakpoint(tablet)) {
+            flex-direction: row;
+        }
+    }
 }

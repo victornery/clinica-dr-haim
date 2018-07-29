@@ -20,7 +20,7 @@
 
 // ** Configurações do MySQL - Você pode pegar estas informações com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
-define('DB_NAME', 'dr_haim');
+define('DB_NAME', 'dr-haim');
 
 /** Usuário do banco de dados MySQL */
 define('DB_USER', 'root');
@@ -83,7 +83,7 @@ $table_prefix  = 'global_wp_';
  * @link https://codex.wordpress.org/pt-br:Depura%C3%A7%C3%A3o_no_WordPress
  */
 define('WP_DEBUG', false);
-
+define('WPCF7_AUTOP', false);
 /* Isto é tudo, pode parar de editar! :) */
 
 /** Caminho absoluto para o diretório WordPress. */

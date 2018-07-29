@@ -6,6 +6,11 @@ while($banner->have_posts()) : $banner->the_post(); ?>
 
 <?php the_post_thumbnail();?>
 
-<?php endwhile; ?>
+<div class="haim-slide__mask">
+    <div class="container">
+        <?php the_content() ?>
+    </div>
+</div>
 
+<?php endwhile; ?>
 </section>

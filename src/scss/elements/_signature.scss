@@ -1,0 +1,12 @@
+.#{$prefix}-signature {
+    background: getColor(dark);
+    color: getColor(light);
+    width: 100%;
+    padding: 7px 0;
+    text-align: center;
+
+    @include e('logo') {
+        width: 25px;
+        filter: brightness(0) invert(1);
+    }
+}
