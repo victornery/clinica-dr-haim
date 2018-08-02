@@ -12,5 +12,5 @@ while($banner->have_posts()) : $banner->the_post(); ?>
     </div>
 </div>
 
-<?php endwhile; ?>
+<?php endwhile; wp_reset_query(); ?>
 </section>

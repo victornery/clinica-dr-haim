@@ -1,0 +1,9 @@
+.#{$prefix}-notices {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  @include e("highlight") {
+    text-transform: uppercase;
+    display: block;
+  }
+}

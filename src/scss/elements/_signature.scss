@@ -4,9 +4,12 @@
     width: 100%;
     padding: 7px 0;
     text-align: center;
-
     @include e('logo') {
         width: 25px;
         filter: brightness(0) invert(1);
+        transition: .5s all;
+        &:hover {
+            filter: none;
+        }
     }
 }

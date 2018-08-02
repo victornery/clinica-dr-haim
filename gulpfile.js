@@ -16,7 +16,7 @@ const babel = require("gulp-babel");
 const rename = require("gulp-rename");
 const imagemin = require("gulp-imagemin");
 const postcss = require("gulp-postcss");
-const autoprefixer = require('autoprefixer');
+const autoprefixer = require("autoprefixer");
 
 const folders = {
   dev: "./src",
@@ -24,14 +24,13 @@ const folders = {
 };
 
 gulp.task("scss", function() {
-  var plugins = [
-    autoprefixer({browsers: ['last 1 version']}),
-  ];
-  return gulp.src(folders.dev + "/scss/main.scss")
+  var plugins = [autoprefixer({ browsers: ["last 1 version"] })];
+  return gulp
+    .src(folders.dev + "/scss/main.scss")
     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
     .pipe(postcss(plugins))
     .pipe(rename("main.min.css"))
-    .pipe(gulp.dest(folders.prod + "/dist/css/"))
+    .pipe(gulp.dest(folders.prod + "/dist/css/"));
 });
 
 gulp.task("js", function() {
@@ -40,7 +39,7 @@ gulp.task("js", function() {
     .pipe(babel({ presets: ["env"] }))
     .pipe(concat("main.min.js"))
     .pipe(uglify())
-    .pipe(gulp.dest(folders.prod + "/dist/js/"))
+    .pipe(gulp.dest(folders.prod + "/dist/js/"));
 });
 
 gulp.task("imgs", function() {
@@ -60,12 +59,11 @@ gulp.task("imgs", function() {
         })
       ])
     )
-    .pipe(gulp.dest(folders.prod + "/dist/images"))
+    .pipe(gulp.dest(folders.prod + "/dist/images"));
 });
 
 gulp.task("php", function() {
-  return gulp.src(folders.dev + "/php/**/*.php")
-  .pipe(gulp.dest(folders.prod));
+  return gulp.src(folders.dev + "/php/**/*.php").pipe(gulp.dest(folders.prod));
 });
 
 gulp.task("default", function() {
