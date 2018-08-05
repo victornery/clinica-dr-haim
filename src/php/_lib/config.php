@@ -57,3 +57,13 @@ if (is_admin()) {
   require_once RWMBC_DIR . 'fields-tax.php';
   require_once RWMBC_DIR . 'settings.php';
 }
+
+/*
+ * Alterando o Excerpt padrão 
+ */
+
+ function custom_excerpt($length) {
+   return 55;
+ }
+
+ add_filter('excerpt_length', 'custom_excerpt', 999);

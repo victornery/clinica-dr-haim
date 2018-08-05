@@ -5,5 +5,65 @@
   @include e("highlight") {
     text-transform: uppercase;
     display: block;
+
+    &::after {
+      content: " ";
+      width: 100%;
+      height: 1px;
+      display: block;
+      background: getColor(line);
+      margin: 10px 0;
+    }
+  }
+
+  @include e("icon") {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #c9c9c9;
+    position: relative;
+    float: left;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    @include m("last") {
+      background: #7bcce5;
+    }
+  }
+
+  @include e("title") {
+    @include m("home") {
+      font-size: rem(16px);
+    }
+  }
+
+  @include e("content") {
+    @include m("home") {
+      font-size: rem(13px);
+    }
+  }
+
+  @include e("details") {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: getBreakpoint(tablet)) {
+      padding-left: 15px;
+    }
+  }
+
+  @include e("item") {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid getColor(line);
+
+    p {
+      margin: 0;
+      padding: 10px 0;
+    }
   }
 }
