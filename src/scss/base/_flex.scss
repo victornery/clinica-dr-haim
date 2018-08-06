@@ -1,12 +1,12 @@
 .haim-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    @media (min-width: getBreakpoint(tablet)) {
-        flex-direction: row;
-    }
-    @include m("align-start") {
-        align-items: flex-start;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  @media (min-width: getBreakpoint(tablet)) {
+    flex-direction: row;
+  }
+  @include m("align-start") {
+    align-items: flex-start;
+  }
 }

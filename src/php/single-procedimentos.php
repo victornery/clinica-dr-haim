@@ -5,12 +5,9 @@
         <header class="haim-header--internal">
             <h1><?php the_title(); ?></h1>
         </header>
-        <aside>
-            <span class="haim-content__data"><?php the_date() ?> · <?php the_author(); ?></span>
-        </aside>
-        <article class="haim-content">
+        <div class="haim-content">
             <?php the_content(); ?>
-        </article>
+        </div>
         <?php endwhile; endif; wp_reset_query(); ?>
     </div>
 </section>

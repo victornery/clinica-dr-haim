@@ -1,27 +1,35 @@
 .#{$prefix}-newsletter {
-    background: getColor(boxDark);
+  background: getColor(boxDark);
+  color: getColor(light);
+  font-family: "Lato", sans-serif;
+  padding: 20px 0;
+  @include e("cta") {
+    font-size: 14px;
     color: getColor(light);
-    font-family: "Lato", sans-serif;
-    padding: 20px 0;
-    @include e("cta") {
-        font-size: 14px;
-        color: getColor(light);
-        b {
-            color: getColor(newsletter);
-            font-weight: 600;
-        }
+    b {
+      color: getColor(newsletter);
+      font-weight: 600;
     }
-    .wpcf7-form {
-        display: flex;
-        flex: {
-            direction: column;
-            wrap: wrap;
-        }
-        align-items: center;
-        justify-content: space-between;
-        margin: 10px 0;
-        @media (min-width: getBreakpoint(tablet)) {
-            flex-direction: row;
-        }
+  }
+
+  .#{$prefix}-form {
+    margin: 10px 0 0;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: getBreakpoint(tablet)) {
+      flex-direction: row;
+      margin: 10px 0;
     }
+
+    .wpcf7-form-control-wrap,
+    .wpcf7-submit {
+      flex-basis: calc(100% / 3);
+      margin: 5px 0;
+
+      @media (min-width: getBreakpoint(tablet)) {
+        margin: 0 10px 0 0;
+      }
+    }
+  }
 }

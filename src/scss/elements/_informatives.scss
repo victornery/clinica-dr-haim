@@ -1,0 +1,7 @@
+.#{$prefix}-informatives {
+  padding-bottom: 20px;
+
+  @media (min-width: getBreakpoint(tablet)) {
+    padding-bottom: 50px;
+  }
+}

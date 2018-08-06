@@ -67,12 +67,11 @@ gulp.task("scss", function() {
 
 gulp.task("js", function() {
   return gulp
-    .src(folders.dev + "/js/**/*.js")
-    .pipe(babel({ presets: ["env"] }))
+    .src(folders.dev + "/js/main.js")
+    .pipe(babel({ presets: ["es2015"] }))
     .pipe(concat("main.min.js"))
     .pipe(uglify())
-    .pipe(gulp.dest(folders.prod + "/dist/js/"))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(gulp.dest(folders.prod + "/dist/js/"));
 });
 
 gulp.task("imgs", function() {

@@ -2,22 +2,47 @@
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
+  width: 100%;
+
+  margin-bottom: 20px;
+
+  a {
+    text-decoration: none;
+  }
   span {
     text-transform: uppercase;
     font-size: rem(14px);
     width: 100%;
   }
   @include e("item") {
+    width: 100%;
+    max-width: 100%;
+
+    @media (min-width: getBreakpoint(tablet)) {
+      width: 327px;
+    }
+
+    &:first-child {
+      margin-bottom: 14px;
+    }
+
     span {
       background: getColor(boxLight);
       color: getColor(dark);
       background: #c5b994;
       color: #000;
-      width: 327px;
       display: block;
       text-align: center;
       padding: 10px 0;
     }
+
+    img {
+      width: 100%;
+      @media (min-width: getBreakpoint(tablet)) {
+        width: 327px;
+      }
+    }
+
     @include m("first") {
       span {
         background: getColor(boxDark);

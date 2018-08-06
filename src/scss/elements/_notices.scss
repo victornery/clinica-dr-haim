@@ -23,6 +23,12 @@
     background: #c9c9c9;
     position: relative;
     float: left;
+    margin-right: 20px;
+
+    @media (min-width: getBreakpoint(tablet)) {
+      margin-right: 0;
+    }
+
     img {
       position: absolute;
       top: 50%;
@@ -64,6 +70,11 @@
     p {
       margin: 0;
       padding: 10px 0;
+    }
+
+    a {
+      color: getColor(menu);
+      text-decoration: none;
     }
   }
 }

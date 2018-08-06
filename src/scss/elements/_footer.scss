@@ -1,23 +1,57 @@
 .#{$prefix}-footer {
-    background: getColor(boxLight);
-    color: getColor(light);
-    padding: rem(30px) 0;
-    @include e("item") {
-        flex-basis: 100%;
-        text-align: center;
-        font {
-            size: rem(18px);
-            weight: 300;
-        }
-        b,
-        span {
-            display: block;
-        }
-        &:first-child {
-            text-align: left;
-        }
-        @media (min-width: getBreakpoint(tablet)) {
-            flex-basis: calc(100% / 3);
-        }
+  background: getColor(boxLight);
+  color: getColor(light);
+  padding: rem(30px) 0;
+
+  address {
+      font-style: normal;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;  
+  }
+
+  @include e("item") {
+    flex-basis: 100%;
+    text-align: center;
+    font: {
+      size: rem(18px);
+      weight: 300;
     }
+    line-height: 1.3;
+
+    b,
+    span {
+      display: inline-block;
+      line-height: 1.3;
+
+      @media (min-width: getBreakpoint(tablet)) {
+        display: block;
+      }
+    }
+
+    @media (min-width: getBreakpoint(tablet)) {
+      flex-basis: calc(100% / 3);
+      &:first-child {
+        text-align: left;
+      }
+    }
+    
+  }
+
+  @include e('socials') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-right: 5px;
+    }
+
+    @media (min-width: getBreakpoint(tablet)) {
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+  }
 }

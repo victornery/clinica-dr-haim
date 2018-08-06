@@ -1,0 +1,58 @@
+.#{$prefix}-content {
+  min-height: 50vh;
+  .alignleft {
+    display: block;
+    margin: 0 auto;
+    @media (min-width: getBreakpoint(tablet)) {
+      display: inline-block;
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: getColor(menu);
+  }
+
+  .form__hold {
+    display: flex;
+    label {
+      margin: 10px 10px 10px 0;
+    }
+  }
+
+  label > .mensagem {
+    margin-top: 20px;
+  }
+
+  .mensagem {
+    textarea {
+      border: 1px solid #f5f5f5;
+      appearance: none;
+      width: 100%;
+      display: block;
+      position: relative;
+      margin-bottom: 20px;
+      resize: none;
+    }
+  }
+
+  .wpcf7-form-control {
+    border: 1px solid #f5f5f5;
+  }
+
+  .wpcf7 label {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  @include e("data") {
+    color: getColor(menu);
+    font-size: rem(15px);
+    margin-top: 20px;
+    display: block;
+    text-transform: uppercase;
+  }
+}

@@ -1,75 +1,126 @@
-header {
+.#{$prefix}-header {
   padding: 20px 0;
-  svg {
-    @for $i from 3 through 5 {
-      .cls-#{$i} {
-        display: none;
+
+  @include e("block") {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+  }
+
+  @include e("nav") {
+    z-index: 10;
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      padding: 0;
+      margin: 0;
+      opacity: 0;
+      background: getColor(logo);
+      list-style: none;
+      transform: translateX(100%);
+      transition: 0.5s all;
+      @media (min-width: getBreakpoint(tablet)) {
+        background: transparent;
+        opacity: 1;
+        position: relative;
+        flex-direction: row;
+        width: auto;
+        height: auto;
+        transform: translateX(0);
+      }
+      li {
+        width: 100%;
+        text-align: center;
+        padding: rem(10px) 0;
+        position: relative;
         @media (min-width: getBreakpoint(tablet)) {
+          width: auto;
+          padding: rem(10px) rem(8px);
+        }
+        a {
+          text-decoration: none;
+          color: getColor(light);
+          width: 100%;
+          line-height: 1.8;
+          font-size: rem(20px);
+          font-weight: 500;
+          letter-spacing: rem(1px);
+          position: relative;
           display: block;
+          @media (min-width: getBreakpoint(tablet)) {
+            color: getColor(menu);
+            font-size: rem(17px);
+            letter-spacing: rem(0.5px);
+          }
         }
       }
+    }
+    .menu-icon {
+      float: right;
+      width: 27px;
+      display: flex;
+      flex-direction: column;
+      z-index: 7;
+      position: relative;
+      @media (min-width: getBreakpoint(tablet)) {
+        display: none;
+      }
+      span {
+        width: 100%;
+        height: 4px;
+        position: relative;
+        display: block;
+        background: getColor(logo);
+        margin: 2px 0;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+      }
+    }
+  }
+
+  @include m("internal") {
+    padding: 20px 0;
+    border-top: 1px solid getColor(lightGray);
+    border-bottom: 1px solid getColor(lightGray);
+
+    h1 {
+      color: getColor(menu);
+      margin: 0;
     }
   }
 }
 
-.#{$prefix}-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 100%;
-}
-
-.#{$prefix}-nav {
-  position: relative;
-  z-index: 2;
+.is-active {
+  .menu-icon {
+    position: fixed;
+    right: 20px;
+    top: 50px;
+  }
   .nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-    background: getColor(slide);
-    list-style: none;
-    @media (min-width: getBreakpoint(tablet)) {
-      background: transparent;
-      opacity: 1;
-      position: relative;
-      flex-direction: row;
-      width: auto;
-      height: auto;
-    }
-    li {
-      width: 100%;
-      text-align: center;
-      padding: rem(10px) 0;
-      position: relative;
-      @media (min-width: getBreakpoint(tablet)) {
-        width: auto;
-        padding: rem(10px) rem(8px);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .menu-icon {
+    span {
+      background-color: getColor(light);
+
+      &:nth-child(1) {
+        transform: translateY(8px) rotate(-45deg);
       }
-      a {
-        text-decoration: none;
-        color: getColor(light);
-        width: 100%;
-        line-height: 1.8;
-        font-size: rem(20px);
-        font-weight: 500;
-        letter-spacing: rem(1px);
-        position: relative;
-        display: block;
-        @media (min-width: getBreakpoint(tablet)) {
-          color: getColor(menu);
-          font-size: rem(17px);
-          letter-spacing: rem(0.5px);
-        }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(-8px) rotate(45deg);
       }
     }
   }
