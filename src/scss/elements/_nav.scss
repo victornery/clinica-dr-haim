@@ -56,10 +56,16 @@
           letter-spacing: rem(1px);
           position: relative;
           display: block;
+          transition: 0.5s all;
           @media (min-width: getBreakpoint(tablet)) {
             color: getColor(menu);
             font-size: rem(17px);
             letter-spacing: rem(0.5px);
+            border-bottom: 2px solid transparent;
+
+            &:hover {
+              border-color: getColor(menu);
+            }
           }
         }
       }
@@ -88,12 +94,13 @@
   }
 
   @include m("internal") {
-    padding: 20px 0;
+    background: getColor(logo);
+    padding: 30px 0;
     border-top: 1px solid getColor(lightGray);
     border-bottom: 1px solid getColor(lightGray);
 
     h1 {
-      color: getColor(menu);
+      color: getColor(light);
       margin: 0;
     }
   }

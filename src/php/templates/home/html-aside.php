@@ -6,7 +6,9 @@
         </a>
     </div>
     <div class="haim-informative__item">
-        <span>Informativo Beauty</span>
-        <img src="<?php echo get_template_directory_uri() ?>/dist/images/informativo-beauty.jpg" alt="Informativo Beauty">
+        <a href="<?php echo get_permalink(get_page_by_path('informativo-beauty')); ?>">
+            <span>Informativo Beauty</span>
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/informativo-beauty.jpg" alt="Informativo Beauty">
+        </a>
     </div>
 </aside>

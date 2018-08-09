@@ -7,9 +7,11 @@
             <?php while($procedures->have_posts()) : $procedures->the_post(); ?>
 
                 <li class="haim-procedures__item">
-                    <div class="haim-procedures__mask"></div>
-                    <?php the_post_thumbnail('full'); ?>
-                    <span><?php the_title(); ?></span>
+                    <a href="<?php the_permalink(); ?>">
+                        <div class="haim-procedures__mask"></div>
+                        <?php the_post_thumbnail('full'); ?>
+                        <span><?php the_title(); ?></span>
+                    </a>
                 </li>
             <?php endwhile; wp_reset_query(); ?>
         </ul>

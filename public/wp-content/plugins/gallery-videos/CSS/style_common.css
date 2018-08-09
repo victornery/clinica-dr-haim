@@ -1,0 +1,6 @@
+.totalsoftview { display:inline-block; overflow: hidden; position: relative; text-align: center; cursor: default; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; max-width: 100% !important; }
+.totalsoftview .mask,.totalsoftview .content { position: absolute; overflow: hidden; top: 0; left: 0; }
+.totalsoftview img { display: block; position: relative; width: 100%; height: 100%; margin: 0 !important; }
+.totalsoftview h2 { position: relative; margin-top: 10px !important; padding: 3px !important; line-height: 1 !important; }
+.totalsoftview p { position: relative; padding: 0px 10px; }
+.totalsoftview a.info { display: inline-block; text-decoration: none; margin: 0 auto; padding-left: 7px; padding-right: 7px; }

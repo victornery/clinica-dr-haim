@@ -1,9 +1,11 @@
 <?php get_template_part('templates/global/html','header'); ?>
 <section class="haim-archive">
-    <div class="container">
         <header class="haim-header--internal">
-            <h1><?php post_type_archive_title(); ?></h1>
+            <div class="container">
+                <h1><?php post_type_archive_title(); ?></h1>
+            </div>
         </header>
+    <div class="container">
         <div class="haim-content">
             <ul class="haim-procedures__list">
         <?php $procedures = new WP_Query(array('post_type' => 'procedimentos', 'posts_per_page' => -1)); ?>

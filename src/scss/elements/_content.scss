@@ -24,12 +24,12 @@
   }
 
   label > .mensagem {
-    margin-top: 20px;
+    //margin-top: 20px;
   }
 
   .mensagem {
     textarea {
-      border: 1px solid #f5f5f5;
+      border: 1px solid #ccc;
       appearance: none;
       width: 100%;
       display: block;
@@ -40,11 +40,19 @@
   }
 
   .wpcf7-form-control {
-    border: 1px solid #f5f5f5;
+    border: 1px solid #ccc;
   }
 
   .wpcf7 label {
     margin-bottom: 10px;
+    display: block;
+  }
+
+  .nome,
+  .email,
+  .assunto,
+  .mensagem {
+    margin-top: 5px;
     display: block;
   }
 
