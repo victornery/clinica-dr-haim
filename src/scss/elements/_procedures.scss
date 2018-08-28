@@ -40,14 +40,32 @@
       z-index: 2;
       font-size: 14px;
       letter-spacing: 1px;
+      transition: 0.3s all;
     }
     img {
       width: 100%;
       object-fit: cover;
+      display: block;
       z-index: 0;
     }
     a {
       width: 100%;
+      transition: 0.3s all;
+
+      &:hover {
+        transform: scale(1.03);
+
+        span {
+          bottom: 50%;
+          transform: translateX(-50%) translateY(50%);
+          font-size: 16px;
+        }
+
+        .haim-procedures__mask::after {
+          background: linear-gradient(to top, #c5b994, transparent 100%);
+          height: 110%;
+        }
+      }
     }
     @media (min-width: getBreakpoint(tablet)) {
       flex-basis: calc((100% / 3) - 8px);
@@ -61,6 +79,7 @@
     top: 0;
     left: 0;
     z-index: 1;
+    overflow: hidden;
     &::after {
       content: " ";
       position: absolute;
@@ -70,6 +89,7 @@
       background: linear-gradient(to top, #c5b994, transparent 90%);
       width: 100%;
       height: 90px;
+      transition: 0.3s all;
     }
   }
 }

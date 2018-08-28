@@ -57,6 +57,11 @@ function prefix_options_meta_boxes( $meta_boxes ) {
                         'type' => 'url',
                     ),
                     array(
+                        'name' => 'Link do Youtube',
+                        'id' => 'end_yt',
+                        'type' => 'url',
+                    ),
+                    array(
                         'name' => 'Endereço',
                         'id' => 'endereco',
                         'type' => 'text',

@@ -11,6 +11,7 @@
 * {
   box-sizing: border-box;
   text-rendering: geometricPrecision;
+  backface-visibility: hidden;
 }
 
 html {

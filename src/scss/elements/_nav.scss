@@ -61,10 +61,13 @@
             color: getColor(menu);
             font-size: rem(17px);
             letter-spacing: rem(0.5px);
-            border-bottom: 2px solid transparent;
+            background: transparent;
+            border-radius: 5px;
+            padding: 5px;
 
             &:hover {
-              border-color: getColor(menu);
+              background: getColor(logo);
+              color: getColor(light);
             }
           }
         }

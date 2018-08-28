@@ -15,7 +15,7 @@ function post_type_procedimentos() {
         'add_new' => _x('Adicionar Procedimento', 'item'),
         'add_new_item' => __('Adicionar Novo Procedimento'),
         'edit_item' => __('Editar Procedimento'),
-        'new_item' => __('Nova Procedimento')
+        'new_item' => __('Novo Procedimento')
     );
 
     $args = array(
@@ -30,12 +30,42 @@ function post_type_procedimentos() {
         'has_archive' => true,
         'hierarchical' => true,
         'menu_position' => 6,
-        'menu_icon' => 'dashicons-universal-access',
+        'menu_icon' => 'dashicons-hammer',
         'supports' => array('title', 'thumbnail', 'editor')
     );
     register_post_type('procedimentos', $args);
 }
 add_action('init', 'post_type_procedimentos');
+
+function post_type_cirurgias() {
+    $labels = array(
+        'name' => 'Cirurgias',
+        'singular_name' => 'Cirurgias',
+        'menu_name' => 'Cirurgias',
+        'add_new' => _x('Adicionar Cirurgia', 'item'),
+        'add_new_item' => __('Adicionar Novo Cirurgia'),
+        'edit_item' => __('Editar Cirurgia'),
+        'new_item' => __('Nova Cirurgia')
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'cirurgias'),
+        'capability_type' => 'post',
+        'has_archive' => true,
+        'hierarchical' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-universal-access',
+        'supports' => array('title', 'thumbnail', 'editor')
+    );
+    register_post_type('cirurgias', $args);
+}
+add_action('init', 'post_type_cirurgias');
 
 function post_type_banners() {
     $labels = array(
@@ -51,7 +81,7 @@ function post_type_banners() {
     $args = array(
         'labels' => $labels,
         'public' => true,
-        'publicly_queryable' => true,
+        'publicly_queryable' => false,
         'show_ui' => true,
         'show_in_menu' => true,
         'query_var' => true,
@@ -60,7 +90,7 @@ function post_type_banners() {
         'has_archive' => true,
         'hierarchical' => true,
         'menu_position' => 6,
-        'menu_icon' => 'dashicons-universal-access',
+        'menu_icon' => 'dashicons-slides',
         'supports' => array('title', 'thumbnail', 'editor')
     );
     register_post_type('banner', $args);

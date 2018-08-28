@@ -17,6 +17,7 @@
   @include e("item") {
     width: 100%;
     max-width: 100%;
+    position: relative;
 
     @media (min-width: getBreakpoint(tablet)) {
       width: 327px;
@@ -38,6 +39,7 @@
 
     img {
       width: 100%;
+      display: block;
       @media (min-width: getBreakpoint(tablet)) {
         width: 327px;
       }
