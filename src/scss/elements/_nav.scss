@@ -106,6 +106,15 @@
       color: getColor(light);
       margin: 0;
     }
+    span {
+      position: relative;
+      display: block;
+      top: 10px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
   }
 }
 

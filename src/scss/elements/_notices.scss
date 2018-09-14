@@ -78,3 +78,22 @@
     }
   }
 }
+
+#sb_instagram {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+
+  @media (min-width: getBreakpoint(tablet)) {
+    width: 45%;
+    top: -80px;
+  }
+}
+
+.fb-iframe {
+  width: 100%;
+
+  @media (min-width: getBreakpoint(tablet)) {
+    width: 45%;
+  }
+}

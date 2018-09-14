@@ -12,12 +12,22 @@
       wrap: wrap;
     }
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-left: 0;
     @media (min-width: getBreakpoint(tablet)) {
       flex-direction: row;
     }
+
+    @include m("internal") {
+      .haim-procedures__item {
+        @media (min-width: getBreakpoint(tablet)) {
+          margin: 0 8px 20px 0;
+          flex-basis: calc((100% / 4) - 8px);
+        }
+      }
+    }
   }
+
   @include e("item") {
     list-style: none;
     padding-left: 0;
@@ -27,6 +37,12 @@
     display: flex;
 
     margin: 0 0 20px;
+
+    @media (min-width: getBreakpoint(tablet)) {
+      margin: 0 8px 20px 0;
+      flex-basis: calc((100% / 3) - 8px);
+    }
+
     span {
       color: getColor(light);
       text-transform: uppercase;
@@ -67,10 +83,8 @@
         }
       }
     }
-    @media (min-width: getBreakpoint(tablet)) {
-      flex-basis: calc((100% / 3) - 8px);
-    }
   }
+
   @include e("mask") {
     background: rgba(getColor(boxLight), 0.6);
     position: absolute;

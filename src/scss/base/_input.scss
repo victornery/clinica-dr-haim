@@ -26,4 +26,10 @@ input[type="submit"] {
   font-size: rem(13px);
   font-weight: 600;
   width: 100%;
+  transition: all 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(getColor(newsletter), 10%);
+  }
 }
