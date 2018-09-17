@@ -1,6 +1,7 @@
 </main>
 
 <footer>
+
 	<div class="haim-footer">
 		<div class="container">
 			<?php $setting = get_option('configuracoes_tema'); $settings = $setting['group_ends']; ?>
