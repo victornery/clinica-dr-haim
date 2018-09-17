@@ -1,6 +1,7 @@
-##Clinical - Dr. Haim Erel
-Que preguiça de escrever algo.
+## Clínica Dr. Haim Erel
+Este site foi criado utizando `WordPress`, portanto, é necessário ter `PHP` e `MariaDB` na sua máquina ou servidor de produção.
 
-- Para iniciar o projeto, digite <code>npm install</code> e dê um <code>gulp</code>.
+- Dê o comando `npm i` para instalar todas as dependências 
+- Rode o projeto com `npm start`
 
-Só isso mesmo.
+##### Este projeto é uma parceria entre Global Consultoria + Create Labs.
