@@ -1,16 +1,29 @@
 .#{$prefix}-header {
   padding: 20px 0;
 
+  @media (min-width: getBreakpoint(tablet)) {
+    padding: 20px 0 0;
+  }
+
   @include e("block") {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     max-width: 100%;
+
+    @media (min-width: getBreakpoint(tablet)) {
+      flex-direction: row;
+    }
   }
 
   @include e("nav") {
     z-index: 10;
+
+    @media (min-width: getBreakpoint(tablet)) {
+      background: #c5c5c5;
+      margin-top: 20px;
+    }
     .nav {
       display: flex;
       align-items: center;
@@ -28,6 +41,8 @@
       list-style: none;
       transform: translateX(100%);
       transition: 0.5s all;
+      z-index: 5;
+
       @media (min-width: getBreakpoint(tablet)) {
         background: transparent;
         opacity: 1;
@@ -58,28 +73,32 @@
           display: block;
           transition: 0.5s all;
           @media (min-width: getBreakpoint(tablet)) {
-            color: getColor(menu);
+            color: getColor(light);
             font-size: rem(17px);
             letter-spacing: rem(0.5px);
             background: transparent;
-            border-radius: 5px;
+            //border-radius: 5px;
             padding: 5px;
+            text-transform: uppercase;
+            border-bottom: 3px solid transparent;
 
             &:hover {
-              background: getColor(logo);
-              color: getColor(light);
+              border-bottom-color: getColor(logo);
             }
           }
         }
       }
     }
     .menu-icon {
-      float: right;
+  
       width: 27px;
       display: flex;
       flex-direction: column;
       z-index: 7;
-      position: relative;
+      position: absolute;
+      top: 77px;
+      right: 1rem;
+
       @media (min-width: getBreakpoint(tablet)) {
         display: none;
       }
@@ -142,5 +161,18 @@
         transform: translateY(-8px) rotate(45deg);
       }
     }
+  }
+}
+
+.haim-marcacao {
+  display: flex;
+  margin-top: 15px;
+
+  @media (min-width: getBreakpoint(tablet)) {
+    margin-top: 0;
+  }
+  svg {
+    width: 30px;
+    height: 34px;
   }
 }

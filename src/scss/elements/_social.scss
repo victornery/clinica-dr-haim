@@ -1,0 +1,40 @@
+.haim-networks {
+    list-style:  none;
+    margin-left:  0;
+    padding-left:  0;
+    display:  flex;
+}
+
+.haim-networks li {
+    width:  300px;
+    /* background:  red; */
+    padding: 15px;
+    /* margin: 15px; */
+    height: 150px;
+    text-align:  center;
+    line-height: 7;
+    text-transform: uppercase;
+    letter-spacing:  1px;
+    /* display:  flex; */
+}
+
+.haim-networks li a {
+    color: #fff;
+}
+
+.haim-networks li:nth-child(1) {
+    background:  #3b5998;
+    /* margin-left: 0; */
+}
+
+.haim-networks li:nth-child(3) {
+    background:  #ff0000;
+    margin-right: 0;
+}
+
+.haim-networks li:nth-child(2) {
+
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+}
