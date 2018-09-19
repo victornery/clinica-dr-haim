@@ -6,7 +6,8 @@
             <h1><?php the_title(); ?></h1>
             <?php if(is_singular('cirurgias')): ?>
                 <span>Detalhes sobre a cirurgia</span>
-            <?php else: ?>
+            <?php endif; ?>
+            <?php if(is_singular('procedimentos')): ?>
                 <span>Detalhes sobre o procedimento</span>
             <?php endif; ?>
         </div>
@@ -16,7 +17,8 @@
             <?php the_content(); ?>
             <?php if(is_singular('cirurgias')): ?>
                 <h2 class="haim-content__title">Outras cirurgias</h2>
-            <?php else: ?>
+            <?php endif; ?>
+            <?php if(is_singular('procedimentos')): ?>
                 <h2 class="haim-content__title">Outros procedimentos</h2>
             <?php endif; ?>
             <ul class="haim-procedures__list haim-procedures__list--internal">
