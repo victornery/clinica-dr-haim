@@ -1,5 +1,5 @@
 <?php if(is_home()): ?>
-    <section class="haim-cta">
+    <!-- <section class="haim-cta">
         <div class="container">
             <?php $setting = get_option('configuracoes_tema'); $settings = $setting['group_ends']; ?>
             <h2>Marque uma consulta</h2>
@@ -7,7 +7,7 @@
 				<span><a href="tel:<?php echo $tel ?>"><?php echo $tel; ?></a></span>
 			<?php endforeach; ?>
         </div>
-    </section>
+    </section> -->
 <?php endif; ?>
 <section class="haim-newsletter">
     <div class="container">
