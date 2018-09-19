@@ -4,7 +4,8 @@
   "description": "Projeto criado para Clinica Dr. Haim Erel pela Equipe de Desenvolvedores da Global Consultoria",
   "main": "index.js",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "build": "gulp"
   },
   "repository": {
     "type": "git",

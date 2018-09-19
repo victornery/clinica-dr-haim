@@ -21,7 +21,7 @@
     z-index: 10;
 
     @media (min-width: getBreakpoint(tablet)) {
-      background: #c5c5c5;
+      background: #f1f1f1;
       margin-top: 20px;
     }
     .nav {
@@ -73,11 +73,11 @@
           display: block;
           transition: 0.5s all;
           @media (min-width: getBreakpoint(tablet)) {
-            color: getColor(light);
             font-size: rem(17px);
             letter-spacing: rem(0.5px);
             background: transparent;
-            //border-radius: 5px;
+            display: inline-block;
+            color: #5d5d5d;
             padding: 5px;
             text-transform: uppercase;
             border-bottom: 3px solid transparent;
