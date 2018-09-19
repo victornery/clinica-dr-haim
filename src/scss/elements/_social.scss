@@ -3,38 +3,56 @@
     margin-left:  0;
     padding-left:  0;
     display:  flex;
-}
+    
+    li {
+        width: 100%;
+        
+        @media (min-width: getBreakpoint(tablet)) {
+            width: calc(100% / 3);
+        }
 
-.haim-networks li {
-    width:  300px;
-    /* background:  red; */
-    padding: 15px;
-    /* margin: 15px; */
-    height: 150px;
-    text-align:  center;
-    line-height: 7;
-    text-transform: uppercase;
-    letter-spacing:  1px;
-    /* display:  flex; */
-}
+         a {
+            display: inline-block;
+            
+            width:  100%;
+            padding: 15px;
+            margin: 10px;
+            height: 150px;
+            text-align:  center;
+            line-height: 7;
+            text-transform: uppercase;
+            letter-spacing:  1px;
+            color: #fff;
 
-.haim-networks li a {
-    color: #fff;
-}
+            background-blend-mode: multiply;
+            background-position: center;
 
-.haim-networks li:nth-child(1) {
-    background:  #3b5998;
-    /* margin-left: 0; */
-}
+            transition: .5s all;
+            
+            @media (min-width: getBreakpoint(tablet)) {
+                margin: 10px 7px 10px 0;
+            }
 
-.haim-networks li:nth-child(3) {
-    background:  #ff0000;
-    margin-right: 0;
-}
+            &:hover {
+                transform: scale(1.03);
+            }
+        }
 
-.haim-networks li:nth-child(2) {
+        &:nth-child(1) a {
+            background-color:  #3b5998;
+            margin-left: 0;
+            background-image: url(http://clientes.labscreate.com/drhaim/wp-content/uploads/photo-gallery/01.jpg?bwg=1536925347);
+        }
 
-    background: #f09433;
-    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        &:nth-child(2) a {
+            margin-right: 0;
+            background: #f09433;
+            background-image: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%), url(http://clientes.labscreate.com/drhaim/wp-content/uploads/photo-gallery/01.jpg?bwg=1536925347);
+        }
+        &:nth-child(3) a {
+            background-color:  #ff0000;
+            background-image: url(http://clientes.labscreate.com/drhaim/wp-content/uploads/photo-gallery/06.jpg?bwg=1536925347);
+            margin-right: 0;
+        }
+    }
 }
