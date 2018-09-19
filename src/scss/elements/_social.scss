@@ -3,12 +3,18 @@
     margin-left:  0;
     padding-left:  0;
     display:  flex;
+    flex-direction: column;
+    @media (min-width: getBreakpoint(tablet)) {
+        flex-direction: row;
+    }
     
     li {
         width: 100%;
+        margin: 10px 0;
         
         @media (min-width: getBreakpoint(tablet)) {
             width: calc(100% / 3);
+            margin: 10px 7px 10px 0;
         }
 
          a {
@@ -16,7 +22,7 @@
             
             width:  100%;
             padding: 15px;
-            margin: 10px;
+            margin: 10px 0;
             height: 150px;
             text-align:  center;
             line-height: 7;
@@ -26,12 +32,9 @@
 
             background-blend-mode: multiply;
             background-position: center;
-
-            transition: .5s all;
+            background-size: cover;
             
-            @media (min-width: getBreakpoint(tablet)) {
-                margin: 10px 7px 10px 0;
-            }
+            transition: .5s all;
 
             &:hover {
                 transform: scale(1.03);

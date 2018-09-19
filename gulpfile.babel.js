@@ -20,7 +20,7 @@ const imagemin = require("gulp-imagemin");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const browserSync = require("browser-sync").create();
-const runSequence = require("run-sequence").use(gulp);
+// const runSequence = require("run-sequence").use(gulp);
 const reload = browserSync.reload;
 
 const folders = {
@@ -29,9 +29,9 @@ const folders = {
   proxy: "localhost:8080"
 };
 
-gulp.task("build", function () {
-  return runSequence("php", "scss", "js", "imgs");
-});
+// gulp.task("build", function () {
+//   return runSequence("php", "scss", "js", "imgs");
+// });
 
 gulp.task("liveReload", function () {
   browserSync.init({

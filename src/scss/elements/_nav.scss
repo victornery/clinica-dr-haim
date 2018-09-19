@@ -51,6 +51,7 @@
         width: auto;
         height: auto;
         transform: translateX(0);
+        justify-content: space-between;
       }
       li {
         width: 100%;
@@ -59,7 +60,7 @@
         position: relative;
         @media (min-width: getBreakpoint(tablet)) {
           width: auto;
-          padding: rem(10px) rem(8px);
+          padding: rem(10px) 0;
         }
         a {
           text-decoration: none;
