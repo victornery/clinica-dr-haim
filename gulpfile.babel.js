@@ -10,39 +10,30 @@
  *  @since 1.0.0
  */
 
-let gulp;
-let sass;
-let concat;
-let uglify;
-let babel;
-let rename;
-let imagemin;
-let postcss;
-let autoprefixer;
-let browserSync;
-let reload;
+const gulp = require("gulp");
+const sass = require("gulp-sass");
+const concat = require("gulp-concat");
+const uglify = require("gulp-uglify");
+const babel = require("gulp-babel");
+const rename = require("gulp-rename");
+const imagemin = require("gulp-imagemin");
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
+const browserSync = require("browser-sync").create();
+const runSequence = require("run-sequence").use(gulp);
+const reload = browserSync.reload;
 
-let folders;
-
-gulp = require("gulp");
-sass = require("gulp-sass");
-concat = require("gulp-concat");
-uglify = require("gulp-uglify");
-babel = require("gulp-babel");
-rename = require("gulp-rename");
-imagemin = require("gulp-imagemin");
-postcss = require("gulp-postcss");
-autoprefixer = require("autoprefixer");
-browserSync = require("browser-sync").create();
-reload = browserSync.reload;
-
-folders = {
+const folders = {
   dev: "./src",
   prod: "./public/wp-content/themes/dr-haim",
   proxy: "localhost:8080"
 };
 
-gulp.task("liveReload", function() {
+gulp.task("build", function () {
+  return runSequence("php", "scss", "js", "imgs");
+});
+
+gulp.task("liveReload", function () {
   browserSync.init({
     proxy: folders.proxy,
     options: {
@@ -52,7 +43,7 @@ gulp.task("liveReload", function() {
   });
 });
 
-gulp.task("scss", function() {
+gulp.task("scss", function () {
   let plugins;
 
   plugins = [autoprefixer({ browsers: ["last 1 version"] })];
@@ -65,7 +56,7 @@ gulp.task("scss", function() {
     .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task("js", function() {
+gulp.task("js", function () {
   return gulp
     .src(folders.dev + "/js/main.js")
     .pipe(babel({ presets: ["es2015"] }))
@@ -74,7 +65,7 @@ gulp.task("js", function() {
     .pipe(gulp.dest(folders.prod + "/dist/js/"));
 });
 
-gulp.task("imgs", function() {
+gulp.task("imgs", function () {
   return gulp
     .src(folders.dev + "/images/*.{png,gif,jpg}")
     .pipe(
@@ -95,14 +86,14 @@ gulp.task("imgs", function() {
     .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task("php", function() {
+gulp.task("php", function () {
   return gulp
     .src(folders.dev + "/php/**/*.php")
     .pipe(gulp.dest(folders.prod))
     .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task("default", function() {
+gulp.task("default", function () {
   gulp
     .watch(folders.dev + "/scss/**/*.scss", ["scss"])
     .on("change", browserSync.reload);
