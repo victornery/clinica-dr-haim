@@ -1,156 +1,126 @@
-.#{$prefix}-header {
-  padding: 20px 0;
-
-  @media (min-width: getBreakpoint(tablet)) {
-    padding: 20px 0 0;
-  }
-
-  @include e("block") {
+.global-header {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 -7px 21px 1px #000;
+  .container {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    max-width: 100%;
-
-    @media (min-width: getBreakpoint(tablet)) {
-      flex-direction: row;
-    }
   }
+  &--logo {
+    transform: scale(.9);
 
-  @include e("nav") {
-    z-index: 10;
+    img {
+      width: 80%;
 
-    @media (min-width: getBreakpoint(tablet)) {
-      background: #f1f1f1;
-      margin-top: 20px;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      right: 0;
-      padding: 0;
-      margin: 0;
-      opacity: 0;
-      background: getColor(logo);
-      list-style: none;
-      transform: translateX(100%);
-      transition: 0.5s all;
-      z-index: 5;
-
-      @media (min-width: getBreakpoint(tablet)) {
-        background: transparent;
-        opacity: 1;
-        position: relative;
-        flex-direction: row;
-        width: auto;
-        height: auto;
-        transform: translateX(0);
-        justify-content: space-between;
-      }
-      li {
+      @media (min-width: 920px) {
         width: 100%;
-        text-align: center;
-        padding: rem(10px) 0;
-        position: relative;
-        @media (min-width: getBreakpoint(tablet)) {
-          width: auto;
-          padding: rem(10px) 0;
-        }
-        a {
-          text-decoration: none;
-          color: getColor(light);
-          width: 100%;
-          line-height: 1.8;
-          font-size: rem(20px);
-          font-weight: 500;
-          letter-spacing: rem(1px);
-          position: relative;
-          display: block;
-          transition: 0.5s all;
-          @media (min-width: getBreakpoint(tablet)) {
-            font-size: rem(17px);
-            letter-spacing: rem(0.5px);
-            background: transparent;
-            display: inline-block;
-            color: #5d5d5d;
-            padding: 5px;
-            text-transform: uppercase;
-            border-bottom: 3px solid transparent;
-
-            &:hover {
-              border-bottom-color: getColor(logo);
-            }
-          }
-        }
       }
-    }
-    .menu-icon {
-  
-      width: 27px;
-      display: flex;
-      flex-direction: column;
-      z-index: 7;
-      position: absolute;
-      top: 77px;
-      right: 1rem;
-
-      @media (min-width: getBreakpoint(tablet)) {
-        display: none;
-      }
-      span {
-        width: 100%;
-        height: 4px;
-        position: relative;
-        display: block;
-        background: getColor(logo);
-        margin: 2px 0;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-      }
-    }
-  }
-
-  @include m("internal") {
-    background: getColor(logo);
-    padding: 30px 0;
-    border-top: 1px solid getColor(lightGray);
-    border-bottom: 1px solid getColor(lightGray);
-
-    h1 {
-      color: getColor(light);
-      margin: 0;
-    }
-    span {
-      position: relative;
-      display: block;
-      top: 10px;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 14px;
     }
   }
 }
 
-.is-active {
+.menu {
+  &-icon {
+    width: 27px;
+    display: flex;
+    flex-direction: column;
+    z-index: 7;
+    position: absolute;
+    top: 25%;
+    right: 16px;
+    margin: 12px;
+
+    @media (min-width: 920px) {
+      display: none;
+    }
+
+    span {
+      width: 100%;
+      height: 4px;
+      position: relative;
+      display: block;
+      background: #4C6D8C;
+      margin: 2px 0;
+      transition: all 0.5s;
+    }
+  }
+}
+
+.nav {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #4C6D8C;
+  z-index: 5;
+
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-transform: capitalize;
+
+  visibility: hidden;
+
+  @media (min-width: 920px) {
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    top: auto;
+    left: auto;
+    background: transparent;
+    position: relative;
+    justify-content: center;
+
+    visibility: visible;
+  }
+
+  @include e('item') {
+    list-style: none;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    letter-spacing: 1px;
+
+    @media (min-width: 920px) {
+      padding: 0 8px;
+      font-size: 18px;
+    }
+
+    a {
+      text-decoration: none;
+      color: getColor(light);
+      text-align: center;
+      padding-bottom: 5px;
+      transition: .5s all;
+
+      &:hover {
+        border-bottom: 2px solid getColor(light);
+      }
+
+      @media (min-width: 920px) {
+        color: getColor(menu);
+        text-align: inherit;
+
+        &:hover {
+          border-bottom: 2px solid getColor(theme);
+        }
+      }
+    }
+
+  }
+}
+
+.nav-opened {
   .menu-icon {
     position: fixed;
-    right: 20px;
-    top: 50px;
-  }
-  .nav {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  .menu-icon {
+    top: 28px;
+
     span {
-      background-color: getColor(light);
+      background: #fff;
 
       &:nth-child(1) {
         transform: translateY(8px) rotate(-45deg);
@@ -158,22 +128,66 @@
       &:nth-child(2) {
         opacity: 0;
       }
+
       &:nth-child(3) {
         transform: translateY(-8px) rotate(45deg);
       }
     }
   }
+
+  .nav {
+    visibility: visible;
+  }
+}
+.bar {
+  position: relative;
+  z-index: 2;
+  padding: 10px;
+  background-color:rgba(242,242,242,1);
+
+  ul {
+    text-align: center;
+    margin: 0;
+
+    @media (min-width: 920px) {
+      text-align: right;
+    }
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 5px;
+
+    &:last-child {
+      margin-top: 8px;
+
+      @media (min-width: 920px) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: grey;
+    display: inline-block;
+  }
+
+  img {
+    height: 18px;
+    max-width: 30px;
+  }
 }
 
-.haim-marcacao {
-  display: flex;
-  margin-top: 15px;
+.wpp-img {
+  margin-left: 10px;
+}
 
-  @media (min-width: getBreakpoint(tablet)) {
-    margin-top: 0;
-  }
-  svg {
-    width: 30px;
-    height: 34px;
-  }
+
+.header-top {
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  display: block;
 }

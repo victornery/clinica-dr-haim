@@ -22,5 +22,4 @@
         </div>
     </div>
 </section>
-<?php get_template_part('templates/global/html','newsletter'); ?>
 <?php get_template_part('templates/global/html','footer'); ?>
