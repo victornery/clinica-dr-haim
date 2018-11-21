@@ -11,6 +11,5 @@
 
 add_action( 'rwmb_meta_boxes', 'wpcf_register_taxonomy_meta_boxes' );
 function wpcf_register_taxonomy_meta_boxes( $meta_boxes ) {
-
   return $meta_boxes;
 }

@@ -115,7 +115,10 @@
 }
 
 .nav-opened {
-  .menu-icon {
+  margin: 0;
+  visibility: visible;
+
+  & ~ .menu-icon {
     position: fixed;
     top: 28px;
 
@@ -134,11 +137,8 @@
       }
     }
   }
-
-  .nav {
-    visibility: visible;
-  }
 }
+
 .bar {
   position: relative;
   z-index: 2;

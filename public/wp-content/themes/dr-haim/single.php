@@ -12,9 +12,23 @@
             <?php endif; ?>
         </div>
     </header>
+
     <div class="haim-content">
         <div class="container">
             <?php the_content(); ?>
+        </div>
+
+            <?php $video = get_post_meta($post->ID, 'video-about', true) ?>
+    <?php if($video): ?>
+        <div class="video-especialidades">
+            <div class="container">
+                <iframe width="100%" height="415" src="https://www.youtube.com/embed/<?php echo $video ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <div class="container">
+
             <?php if(is_singular('cirurgias')): ?>
                 <h2 class="haim-content__title">Outras cirurgias</h2>
             <?php endif; ?>
